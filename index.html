@@ -12,11 +12,16 @@
 <body>
   <div class="hearts-container"></div>
   <div class="floating-flowers"></div>
+  <div class="floating-hearts"></div>
   
   <header class="animate__animated animate__fadeIn">
     <h1>Para Estefanía ✨</h1>
     <p class="subtitle">Un espacio creado con todo mi cariño</p>
     <div class="flower-animation">🌸</div>
+    <div class="music-control">
+      <i class="fas fa-music"></i>
+      <span>Música</span>
+    </div>
   </header>
 
   <main>
@@ -27,6 +32,10 @@
       <div class="polaroid" onclick="shakePolaroid()">
         <img src="https://source.unsplash.com/400x300/?happy,woman" alt="Te imagino así de feliz">
         <p>Te imagino así de feliz</p>
+      </div>
+      <div class="love-meter">
+        <div class="meter-fill" style="width: 100%"></div>
+        <span>100% Amor</span>
       </div>
     </section>
 
@@ -40,6 +49,9 @@
         <button class="tab-button" onclick="showTravel('cdmx')">
           <i class="fas fa-city"></i> CDMX
         </button>
+        <button class="tab-button" onclick="showTravel('futuro')">
+          <i class="fas fa-heart"></i> Futuros
+        </button>
       </div>
       
       <!-- Carrusel Cozumel -->
@@ -49,9 +61,11 @@
           <div class="travel-media-wrapper">
             <div class="travel-media-item active">
               <img src="https://source.unsplash.com/800x500/?cozumel,beach" alt="Playa en Cozumel">
+              <div class="travel-caption">Nuestro primer viaje juntos</div>
             </div>
             <div class="travel-media-item">
               <img src="https://source.unsplash.com/800x500/?cozumel,snorkeling" alt="Esnórquel en Cozumel">
+              <div class="travel-caption">Aventuras bajo el mar</div>
             </div>
             <div class="travel-media-item">
               <div class="video-placeholder">
@@ -73,9 +87,11 @@
           <div class="travel-media-wrapper">
             <div class="travel-media-item active">
               <img src="https://source.unsplash.com/800x500/?mexico city" alt="CDMX">
+              <div class="travel-caption">Explorando la ciudad</div>
             </div>
             <div class="travel-media-item">
               <img src="https://source.unsplash.com/800x500/?mexico city,historic" alt="Centro Histórico">
+              <div class="travel-caption">Paseo por el centro</div>
             </div>
             <div class="travel-media-item">
               <div class="video-placeholder">
@@ -89,10 +105,33 @@
           <div class="travel-dots"></div>
         </div>
       </div>
+      
+      <!-- Carrusel Futuros Viajes -->
+      <div id="futuro-travel" class="travel-carousel">
+        <h3 class="travel-title animate__animated animate__pulse animate__infinite animate__slower">Futuros Viajes</h3>
+        <div class="travel-media-container">
+          <div class="travel-media-wrapper">
+            <div class="travel-media-item active">
+              <img src="https://source.unsplash.com/800x500/?paris" alt="París">
+              <div class="travel-caption">París, la ciudad del amor</div>
+            </div>
+            <div class="travel-media-item">
+              <img src="https://source.unsplash.com/800x500/?japan" alt="Japón">
+              <div class="travel-caption">Cerezos en Japón</div>
+            </div>
+            <div class="travel-media-item">
+              <img src="https://source.unsplash.com/800x500/?venice" alt="Venecia">
+              <div class="travel-caption">Paseo en góndola</div>
+            </div>
+          </div>
+          <button class="travel-prev" onclick="moveTravelMedia(-1, 'futuro')"><i class="fas fa-chevron-left"></i></button>
+          <button class="travel-next" onclick="moveTravelMedia(1, 'futuro')"><i class="fas fa-chevron-right"></i></button>
+          <div class="travel-dots"></div>
+        </div>
+      </div>
     </section>
 
-
-    <section class="gallery">
+    <section class="gallery animate__animated animate__fadeInUp">
       <h2><span class="decorative">🌷</span> Cosas que me recuerdan a ti</h2>
       <div class="carousel">
         <div class="carousel-inner">
@@ -108,13 +147,18 @@
             <img src="https://source.unsplash.com/600x400/?starry,night" alt="Estrellas">
             <p class="caption">Las estrellas, porque brillas como ellas</p>
           </div>
+          <div class="carousel-item">
+            <img src="https://source.unsplash.com/600x400/?chocolate" alt="Chocolate">
+            <p class="caption">El chocolate, dulce como tu personalidad</p>
+          </div>
         </div>
         <button class="carousel-control prev" onclick="moveSlide(-1)">❮</button>
         <button class="carousel-control next" onclick="moveSlide(1)">❯</button>
+        <div class="carousel-dots"></div>
       </div>
     </section>
 
-    <section class="message-box">
+    <section class="message-box animate__animated animate__fadeInUp">
       <h2><span class="decorative">💌</span> Un mensaje especial</h2>
       <div class="letter">
         <div class="letter-content">
@@ -125,22 +169,45 @@
           <div class="envelope-body"></div>
         </div>
       </div>
+      <div class="love-quotes">
+        <div class="quote active">"Eres mi hoy y todos mis mañanas"</div>
+        <div class="quote">"El amor no se mira, se siente. Y contigo lo siento todo"</div>
+        <div class="quote">"Eres el sueño que nunca quiero dejar de soñar"</div>
+      </div>
     </section>
 
-    <section class="playlist">
+    <section class="playlist animate__animated animate__fadeInUp">
       <h2><span class="decorative">🎵</span> Canciones que me recuerdan a ti</h2>
       <div class="songs">
         <div class="song" onclick="playSong('Cancion 1')">
           <span class="play-icon">▶️</span>
           <span class="song-title">Tu canción favorita</span>
+          <span class="song-duration">3:45</span>
         </div>
         <div class="song" onclick="playSong('Cancion 2')">
           <span class="play-icon">▶️</span>
           <span class="song-title">Esa que bailamos juntos</span>
+          <span class="song-duration">4:12</span>
         </div>
         <div class="song" onclick="playSong('Cancion 3')">
           <span class="play-icon">▶️</span>
           <span class="song-title">La que habla de cómo te siento</span>
+          <span class="song-duration">3:28</span>
+        </div>
+        <div class="song" onclick="playSong('Cancion 4')">
+          <span class="play-icon">▶️</span>
+          <span class="song-title">Nuestra canción</span>
+          <span class="song-duration">3:15</span>
+        </div>
+      </div>
+      <div class="music-player hidden">
+        <div class="player-controls">
+          <button class="control-btn" onclick="skipBackward()"><i class="fas fa-step-backward"></i></button>
+          <button class="control-btn play-btn" onclick="togglePlay()"><i class="fas fa-play"></i></button>
+          <button class="control-btn" onclick="skipForward()"><i class="fas fa-step-forward"></i></button>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar"></div>
         </div>
       </div>
     </section>
@@ -152,10 +219,20 @@
       <p class="signature">Con todo mi cariño,<br>Dennis</p>
     </div>
     <div class="heart-beat">💖</div>
+    <div class="social-icons">
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+    </div>
   </footer>
 
   <!-- Efecto de confeti -->
   <canvas id="confetti-canvas"></canvas>
+
+  <!-- Audio para la música -->
+  <audio id="background-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
