@@ -1,0 +1,453 @@
+/* Fuentes y colores base */
+:root {
+  --color-primary: #d23669;
+  --color-secondary: #ff8ba7;
+  --color-light: #ffdde1;
+  --color-bg: #fffafc;
+  --color-text: #5a3d5c;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, var(--color-bg), #fff0f5);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Animaciones clave */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes floatLeft {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-10px) translateY(-10px); }
+}
+
+@keyframes floatRight {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(10px) translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0.5; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, var(--color-light), #f8c8dc);
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-family: 'Dancing Script', cursive;
+  color: var(--color-primary);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.flower-animation {
+  position: absolute;
+  font-size: 1.5em;
+  animation: float 3s ease-in-out infinite;
+  top: 20px;
+  right: 20px;
+}
+
+/* Secciones principales */
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  animation: slideIn 0.8s ease;
+}
+
+h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  color: var(--color-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.decorative {
+  font-size: 1.2em;
+}
+
+/* Polaroid */
+.polaroid {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 15px 15px 30px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: rotate(2deg);
+  transition: transform 0.3s ease;
+  animation: pulse 4s infinite;
+  cursor: pointer;
+}
+
+.polaroid:hover {
+  transform: rotate(1deg) scale(1.05);
+}
+
+.polaroid.shake {
+  animation: shake 0.5s ease;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  display: block;
+}
+
+.polaroid p {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+  color: #666;
+}
+
+/* Sección de viajes */
+.travels {
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 12px 25px;
+  background: var(--color-light);
+  border: none;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-button:hover {
+  background: #ffb6c1;
+  transform: translateY(-5px) rotate(2deg);
+  box-shadow: 0 10px 20px rgba(210, 54, 105, 0.2);
+}
+
+.tab-button.active {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 8px rgba(210, 54, 105, 0.3);
+}
+
+.travel-carousel {
+  display: none;
+  animation: fadeIn 0.8s ease;
+}
+
+.travel-carousel.active {
+  display: block;
+}
+
+.travel-title {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  color: var(--color-primary);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 20px;
+  animation: pulse 3s infinite;
+}
+
+.travel-media-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.travel-media-wrapper {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.travel-media-item {
+  min-width: 100%;
+  position: relative;
+  display: none;
+}
+
+.travel-media-item.active {
+  display: block;
+  animation: fadeIn 0.8s ease;
+}
+
+.travel-media-item img, .travel-media-item video {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(45deg, var(--color-light), #f8c8dc);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  cursor: pointer;
+}
+
+.video-placeholder i {
+  font-size: 3em;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.video-placeholder:hover i {
+  transform: scale(1.2);
+}
+
+/* Controles del carrusel */
+.travel-prev, .travel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.5em;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.travel-prev {
+  left: 20px;
+}
+
+.travel-next {
+  right: 20px;
+}
+
+.travel-media-container:hover .travel-prev,
+.travel-media-container:hover .travel-next {
+  opacity: 1;
+}
+
+.travel-prev:hover, .travel-next:hover {
+  background: rgba(255,255,255,0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Puntos indicadores */
+.travel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.travel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.travel-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Elementos flotantes */
+.hearts-container, .floating-flowers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  animation: float 4s linear forwards;
+  z-index: -1;
+}
+
+.floating-flowers::before, .floating-flowers::after {
+  content: "🌸";
+  position: fixed;
+  font-size: 2em;
+  opacity: 0.7;
+  z-index: -1;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.floating-flowers::before {
+  top: 20%;
+  left: 10%;
+  animation-name: floatLeft;
+}
+
+.floating-flowers::after {
+  top: 30%;
+  right: 10%;
+  animation-name: floatRight;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(to right, var(--color-light), #f8c8dc);
+  margin-top: 50px;
+  padding: 40px 0;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.final-message {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 20px;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  color: var(--color-primary);
+  margin-top: 15px;
+}
+
+.heart-beat {
+  font-size: 2em;
+  animation: pulse 1.5s infinite;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .travel-media-item img, .travel-media-item video, .video-placeholder {
+    height: 350px;
+  }
+  
+  .travel-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-button {
+    width: 80%;
+  }
+  
+  .travel-prev, .travel-next {
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+  }
+  
+  .polaroid {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .travel-media-item img, .travel-media-item video, .video-placeholder {
+    height: 250px;
+  }
+  
+  .travel-title {
+    font-size: 1.5rem;
+  }
+  
+  section {
+    padding: 30px 15px;
+    margin: 20px auto;
+  }
+  
+  .tab-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Efecto de confeti (canvas) */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
